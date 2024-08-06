@@ -11,8 +11,11 @@ import {
 	AiOutlineCalendar,
 	AiOutlineLogout,
 } from "react-icons/ai";
+import { useRouter } from "next/navigation";
+import { signOut } from "next-auth/react";
 
 const Sidebar = () => {
+	const router = useRouter()
   return (
     <div className="pb-12 min-h-screen">
 			<div className="space-y-4 py-4">
@@ -24,7 +27,7 @@ const Sidebar = () => {
 						<Button
 							variant={"ghost"}
 							className="w-full justify-start rounded-none hover:text-primary"
-							onClick={() => {}}
+							onClick={() => router.push('/')}
 						>
 							<AiOutlineHome className="mr-2 text-lg" />
 							Home
@@ -53,7 +56,7 @@ const Sidebar = () => {
 						<Button
 							variant={"ghost"}
 							className="w-full justify-start rounded-none hover:text-primary"
-							onClick={() => {}}
+							onClick={() => router.push("/job-listing")}
 						>
 							<HiOutlineClipboardList className="mr-2 text-lg" />
 							Job Listings
@@ -77,7 +80,7 @@ const Sidebar = () => {
 						<Button
 							variant={"ghost"}
 							className="w-full justify-start rounded-none hover:text-primary"
-							onClick={() => {}}
+							onClick={() => router.push('/settings')}
 						>
 							<BsGear className="mr-2 text-lg" />
 							Settings
@@ -85,7 +88,7 @@ const Sidebar = () => {
 						<Button
 							variant={"ghost"}
 							className="w-full text-red-500 hover:bg-red-200 hover:text-red-500 justify-start rounded-none"
-							onClick={() => {}}
+							onClick={() => signOut()}
 						>
 							<AiOutlineLogout className="mr-2 text-lg" />
 							Logout
